@@ -1,11 +1,13 @@
 "use client";
 
-import { Product } from "@/types";
 import Image from "next/image";
-import IconButton from "./icon-button";
-import { Expand } from "lucide-react";
-import Currency from "./currency";
 import { useRouter } from "next/navigation";
+import { Expand } from "lucide-react";
+
+import { Product } from "@/types";
+
+import IconButton from "@/components/ui/icon-button";
+import Currency from "@/components/ui/currency";
 
 interface ProductCardProps {
     data: Product;
@@ -17,7 +19,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
     const router = useRouter();
 
     const handleClick = () => {
-        router.push(`/products/${data?.id}`);
+        router.push(`/product/${data?.id}`);
     }
 
     return (
