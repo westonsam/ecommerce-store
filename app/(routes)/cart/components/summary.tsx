@@ -20,7 +20,7 @@ const Summary = () => {
             removeAll();
         }
 
-        if(searchParams.get("canceled")) {
+        if (searchParams.get("canceled")) {
             toast.error("Something went wrong.")
         }
     }, [searchParams, removeAll]);
@@ -32,12 +32,11 @@ const Summary = () => {
 
     const onCheckout = async () => {
         const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/checkout`, {
-            productIDs: items.map((item) => item.id),
+          productIds: items.map((item) => item.id)
         });
-
+    
         window.location = response.data.url;
-    }
-
+      }
 
     return (
         <div className="mt-16 rounded-lg bg-gray-50 px-4 py-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8">
